@@ -66,17 +66,34 @@ void stringCompare(char arr1[], char arr2[]) {
   }
 }
 
-void stringCopy(char arr1[]) {
-  char arr2[100];
-  char* ptr1 = arr1;
-  char* ptr2 = arr2;
-  while (*ptr1 != '\0') {
-    *ptr2 = *ptr1;
-    cout << *ptr2;
-    ptr1++;
-    ptr2++;
+void stringCopy(char arr1[], char arr2[], int size) {
+  int i = 0;
+
+  while (arr1[i] != '\0') {
+    arr2[i] = arr1[i];
+    i++;
   }
-  *ptr2 = '\0';
+  arr2[i] = '\0';
   cout << endl;
 }
+
+int stringLength(char arr[]) {
+  int size = 0;
+  char* ptr = arr;
+  while (*ptr != '\0') {
+    size += 1;
+    ptr++;
+  }
+  return size;
+}
+char* stringCopy2(char arr[]) {
+  char* arr2 = new char[stringLength(arr) + 1];
+
+  int i = 0;
+  while (arr[i] != '\0') {
+    arr2[i] = arr[i];
+    i++;
+  }
+  arr2[i] = '\0';
+  return arr2;
 }  // namespace StringLib
